@@ -4,17 +4,24 @@ public class SpecimenVault
 
     public void Add(string specimen)
     {
-        // TODO
+        specimens.Add(specimen);
     }
 
     public bool Remove(string specimen)
     {
-        // TODO
+        if (specimens.Contains(specimen))
+        {
+            specimens.Remove(specimen);
+            return true;
+        }
         return false;
     }
 
     public void PrintAll()
     {
-        // TODO
+        foreach (string specimen in specimens)
+        {
+            Console.WriteLine(specimen);
+        }
     }
 }
