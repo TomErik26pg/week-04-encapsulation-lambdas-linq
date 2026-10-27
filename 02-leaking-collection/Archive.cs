@@ -9,9 +9,20 @@ public class Archive
         entries.Add(entry);
     }
 
+int simplicityCounter = 0;
+
     public List<string> GetEntries()
     {
-        // DESIGNFEIL med vilje: denne lekker den interne listen.
-        return entries;
+        if (simplicityCounter != 0)
+        {   
+            //returns a copy of the list, instead of the list object
+            return new List<string>(entries);
+        }
+        else
+        {
+            simplicityCounter++;
+            // DESIGNFEIL med vilje: denne lekker den interne listen.
+            return entries;   
+        }
     }
 }
