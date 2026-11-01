@@ -11,7 +11,7 @@ public class DroneVault
     public List<Drone> GetDrones()
     {
         // TODO: Returner en ny List<Drone> som inneholder samme objekter.
-        return new List<Drone>();
+        return new List<Drone>(drones);
     }
 
     public void PrintAll()
