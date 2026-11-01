@@ -4,11 +4,16 @@ PrintMatching(readings, IsHighReading);
 
 static void PrintMatching(List<int> values, Func<int, bool> condition)
 {
-    // TODO: Skriv bare verdier der condition(value) er true.
+    foreach (int value in values)
+    {
+        if (condition(value))
+        {
+            Console.WriteLine(value);
+        }
+    }
 }
 
 static bool IsHighReading(int value)
 {
-    // TODO: Definer "high" som minst 60.
-    return false;
+    return value >= 60;
 }
