@@ -8,6 +8,20 @@ List<Artifact> artifacts = new List<Artifact>
     new Artifact("Cold Lens", "Europa", 28)
 };
 
+var sortedArtifacts = artifacts
+    .Where(artifact => artifact.Risk >= 30) //reference
+    .OrderBy(artifact => artifact.Name) //reference
+    .Select(artifact => $"Name [{artifact.Name}] | Risk ({artifact.Risk})"); //transforms to string
 
-// TODO: Where -> OrderBy -> Select.
-// TODO: Lag også en egen OrderBy på Risk.
+foreach (string artifact in sortedArtifacts)
+{
+    Console.WriteLine(artifact);
+}
+
+Console.WriteLine(" "); //spacing
+var artifactsByRisk = artifacts.OrderBy(artifact => artifact.Risk);
+
+foreach (Artifact artifact in artifactsByRisk)
+{
+    Console.WriteLine($"Name [{artifact.Name}] | Risk ({artifact.Risk})");
+}
