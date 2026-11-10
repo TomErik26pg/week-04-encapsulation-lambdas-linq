@@ -23,30 +23,17 @@ var artifactFromMoon = artifacts.Where(artifact => artifact.Origin == "Moon");
 var artifactsContainingLetterE = artifacts.Where(artifact => artifact.Name.Contains('e', StringComparison.InvariantCultureIgnoreCase));
 
 //print alle resultater
-for (int i = 0; i <4; i++)
+foreach (Artifact artifact in artifactRisk)
 {
-    switch (i)
-    {
-        case 0:
-            foreach (Artifact artifact in artifactRisk)
-            {
-                Console.WriteLine($"Risk >= 60: {artifact.Name} ({artifact.Risk})");
-            }
-            break;
+    Console.WriteLine($"Risk >= 60: {artifact.Name} ({artifact.Risk})");
+}
 
-        case 1:
-            foreach (Artifact artifact in artifactFromMoon)
-            {
-                Console.WriteLine($"From Moon: {artifact.Name} ({artifact.Origin})");
-            }
-            break;
-        
-        case 2:
-            foreach (Artifact artifact in artifactsContainingLetterE)
-            {
-                Console.WriteLine($"Contains E: {artifact.Name}");
+foreach (Artifact artifact in artifactFromMoon)
+{
+    Console.WriteLine($"From Moon: {artifact.Name} ({artifact.Origin})");
+}
 
-            }
-            break;
-    }
+foreach (Artifact artifact in artifactsContainingLetterE)
+{
+    Console.WriteLine($"Contains E: {artifact.Name}");
 }
