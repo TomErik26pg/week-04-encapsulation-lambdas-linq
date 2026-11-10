@@ -3,7 +3,7 @@ archive.Add("A-1");
 archive.Add("A-2");
 archive.Add("A-3");
 
-List<string> outsideList = archive.GetEntries();
+List<string> outsideList = archive.GetEntriesLeaking();
 
 // TODO del A: Clear outsideList og observer archive.Count.
 Console.WriteLine("Oppgave del A:");
