@@ -1,3 +1,5 @@
+using System.Collections;
+
 List<Artifact> artifacts = new List<Artifact>
 {
     new Artifact("Echo Stone", "Moon", 73),
@@ -5,7 +7,8 @@ List<Artifact> artifacts = new List<Artifact>
     new Artifact("Glass Seed", "Mars", 48),
     new Artifact("Signal Cube", "Moon", 91),
     new Artifact("Dust Crown", "Mars", 65),
-    new Artifact("Cold Lens", "Europa", 28)
+    new Artifact("Cold Lens", "Europa", 28),
+    new Artifact("Etchings of a Madman", "Pluto", 33)
 };
 
 
@@ -17,7 +20,7 @@ var artifactRisk = artifacts.Where(artifact => artifact.Risk >= 60);
 var artifactFromMoon = artifacts.Where(artifact => artifact.Origin == "Moon");
 
 //all names containing 'e' case sensitive
-var artifactsContainingLetterE = artifacts.Where(artifact => artifact.Name.Contains('e'));
+var artifactsContainingLetterE = artifacts.Where(artifact => artifact.Name.Contains('e', StringComparison.InvariantCultureIgnoreCase));
 
 //print alle resultater
 for (int i = 0; i <4; i++)
