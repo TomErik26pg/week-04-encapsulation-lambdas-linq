@@ -8,31 +8,19 @@ var highRiskArtifacts = archive.FindArtifacts(artifact => artifact.Risk > 60);
 var moonArtifacts = archive.FindArtifacts(artifact => artifact.Origin == "Moon");
 var artifactsContainingS = archive.FindArtifacts(artifact => artifact.Name.ToLower().Contains("s"));
 
-for (int i = 0; i < 3; i++)
+foreach (Artifact artifact in highRiskArtifacts)
 {
-    switch (i)
-    {
-        case 0:
-            foreach (Artifact artifact in highRiskArtifacts)
-            {
-                Console.WriteLine($"High Risk Artifact: {artifact.Name} ({artifact.Risk})");
-            }
-            Console.WriteLine(" "); //spacing
-            break;
+    Console.WriteLine($"High Risk Artifact: {artifact.Name} ({artifact.Risk})");
+}
+Console.WriteLine(" "); //spacing
         
-        case 1:
-            foreach (Artifact artifact in moonArtifacts)
-            {
-                Console.WriteLine($"Artifacts with origin Moon: {artifact.Name}");
-            }
-            Console.WriteLine(" "); //spacing
-            break;
+foreach (Artifact artifact in moonArtifacts)
+{
+    Console.WriteLine($"Artifacts with origin Moon: {artifact.Name}");
+}
+Console.WriteLine(" "); //spacing
         
-        case 2:
-            foreach (Artifact artifact in artifactsContainingS)
-            {
-                Console.WriteLine($"Artifact name containing 'S': {artifact.Name}");
-            }
-            break;
-    }
+foreach (Artifact artifact in artifactsContainingS)
+{
+    Console.WriteLine($"Artifact name containing 'S': {artifact.Name}");
 }
